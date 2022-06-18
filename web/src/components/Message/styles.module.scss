@@ -1,0 +1,39 @@
+.container {
+    margin-bottom: 140px;
+    .content {
+        background: #1a1a1a;
+        width: 50%;
+        
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 0 auto;
+        margin-bottom: 15px;
+
+        .information {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            > div {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            img {
+                width: 40px;
+            }
+
+            h1, span {
+                color: #cfcbcb;
+                font-size: 16px;
+            }
+        }
+    }
+
+    p {
+        color: #cfcbcb;
+        font-size: 16px;
+        margin-top: 15px;
+    }
+}

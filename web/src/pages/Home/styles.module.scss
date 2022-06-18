@@ -1,0 +1,98 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 120px;
+
+    > div {
+        text-align: center;
+
+        span {
+            color: #c09a04;
+            font-family: Mukta, sans-serif;
+        }
+        h1 {
+            color: white;
+        }
+        p {
+            width: 34.375rem;
+            color: #c5c2c2;
+            letter-spacing: -1px;
+            margin-top: 16px;
+        }
+        h1 {
+          font-family: Mukta, sans-serif; 
+        }
+        div { 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+
+            button {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                background: none;
+                padding: 15px 18px;
+                position: relative;
+                border: none;
+
+                a {
+                    color: white;
+                    font-size: 16px;
+                    text-decoration: none;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%) translateX(calc(100% + 4px));
+                    width: 45px;
+                    height: 45px;
+                    background: gold;
+                    border-radius: 50px;
+                    transition: transform .25s .25s cubic-bezier(0, 0, .5, 2), width .25s cubic-bezier(0, 0, .5, 2);
+                    z-index: -1;
+                }
+
+                &:hover::before {
+                    width: 100%;
+                    transform: translateY(-50%) translateX(-18px);
+                    transition: transform .25s cubic-bezier(0, 0, .5, 2), width .25s .25s cubic-bezier(0, 0, .5, 2);
+                }
+                i {
+                    margin-left: 5px;
+                    margin-top: 5px;
+                    transition: transform .25s .4s cubic-bezier(0, 0, .5 2);
+                }
+
+                &.button:hover i {
+                    transform: translateX(3px);
+                }
+
+            }
+        }
+    }
+    
+    img {
+        filter: drop-shadow(10px 5px 5px #9b0606ed);
+        margin-top: 2rem;
+    }
+}
+
+@media(max-width: 700px){
+    .container {
+        grid-auto-flow: column;
+        flex-direction: column;
+
+        P {
+            padding: 0 2.5rem 0 2.5rem;
+        }
+
+        img {
+            display: none;
+        }
+    }
+}

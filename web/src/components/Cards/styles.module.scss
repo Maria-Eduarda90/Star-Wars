@@ -1,0 +1,44 @@
+.information {
+        padding: 3rem 0 2rem 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+        img {
+            height: 400px;
+            width: 400px;
+        }
+
+        div {
+            h1 {
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            p {
+                color: #a9a4a4;
+                max-width: 400px;
+                margin-top: 10px;
+            }
+        }
+
+        .padawan {
+            h1 {
+                color: #3eac3eda;
+                text-shadow: 2px 2px 10px #3eac3eda;
+            }
+        }
+
+        .jedi {
+            h1 {
+                color: #70158ef5;
+                text-shadow: 2px 2px 10px #70158ef5;
+            }
+        }
+
+        .sith {
+            h1 {
+                color: #d70c0cf9;
+                text-shadow: 2px 2px 10px #d70c0cf9;
+            }
+        }
+    }

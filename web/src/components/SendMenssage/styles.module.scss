@@ -1,0 +1,54 @@
+.sendMessageContainer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000;
+
+    .content {
+        display: flex;
+        justify-content: center;
+        background: #1a1a1a;
+        width: 50%;
+        
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 0 auto;
+        gap: 0.5rem;
+        opacity: 0;
+        transform: translateY(1rem);
+        animation: slideUp 1s forwards;
+
+        @keyframes slideUp {
+            to {
+                transform: initial;
+                opacity: initial;
+            }
+        }
+
+        img {
+            width: 40px;
+            margin-bottom: 45px;
+        }
+
+        textarea {
+            resize: none;
+            outline: 0;
+            padding: 1rem;
+            width: 100vw;
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            height: 50%;
+            color: #fff;
+            background: #3e3e3e;
+        }
+    }
+}
