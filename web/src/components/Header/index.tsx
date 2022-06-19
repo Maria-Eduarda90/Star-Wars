@@ -1,5 +1,8 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styles from './styles.module.scss';
+
+import CloseMenu from '../../images/svg/closeMenu.svg';
+import Menu from '../../images/svg/menu.svg';
 
 import imgLogo from '../../images/Logo.png';
 import { useState } from 'react';
