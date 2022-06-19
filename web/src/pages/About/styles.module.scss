@@ -1,16 +1,21 @@
 .container {
     margin-top: 150px;
-    padding: 0 1.5rem 0.5rem 1.5rem;
 
     .text {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: center;
         text-align: center;
 
+        img {
+            filter: drop-shadow(10px 5px 5px #9b0606ed);
+        }
+
         > div {
-            display: flex;
-            align-items: center;
+            div {
+                display: flex;
+                justify-content: center;
+            }
 
             img {
                 width: 55px;
