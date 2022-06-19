@@ -7,6 +7,7 @@ import { api } from '../../api/api';
 type commentProps = {
     id: string;
     comment: string;
+    created_at: string;
 }
 
 export function Comments(){
@@ -29,7 +30,7 @@ export function Comments(){
                                 <h1>Anônimo</h1>
                             </div>
                             <div>
-                                <span>há 2 dias</span>
+                                <span>{comment.created_at.slice(0, 10)}</span>
                             </div>
                         </div>
                         <p>
