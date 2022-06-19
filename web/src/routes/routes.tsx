@@ -4,6 +4,7 @@ import { About } from "../pages/About";
 import { CharacterInformation } from "../pages/CharacterInformation";
 import { CommentsSection } from "../pages/CommentsSection";
 import { Home } from "../pages/Home";
+import { NoutFound } from "../pages/NoutFound";
 
 export function AppRouter(){
     return(
@@ -13,7 +14,7 @@ export function AppRouter(){
                 <Route path="/Sobre" element={<About />} />
                 <Route path="/Personagens" element={<CharacterInformation />} />
                 <Route path="/Comentarios" element={<CommentsSection />} />
-                <Route path="*" element={'Error'} />
+                <Route path="*" element={<NoutFound/>} />
             </Routes>
         </Router>
     );
