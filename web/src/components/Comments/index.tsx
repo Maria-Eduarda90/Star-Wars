@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { api } from '../../api/api';
 
 type commentProps = {
+    id: string;
     comment: string;
 }
 
@@ -21,7 +22,7 @@ export function Comments(){
         <div className={styles.container}>
             {comments.map(comment => {
                 return(
-                    <div className={styles.content}>
+                    <div className={styles.content} key={comment.id}>
                         <div className={styles.information}>
                             <div>
                                 <img src={avatar} alt="avatar" />
