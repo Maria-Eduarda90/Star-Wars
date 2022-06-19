@@ -14,4 +14,6 @@ model Comment {
   id          String @id @default(uuid())
   comment     String
   created_at  DateTime @default(now())
+
+  @@map("comments")
 }

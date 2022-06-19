@@ -1,6 +1,6 @@
 import { Header } from '../../components/Header';
-import { Message } from '../../components/Message';
-import { SendMessage } from '../../components/SendMenssage';
+import { Comments } from '../../components/Comments';
+import { SendComments } from '../../components/SendComments';
 import styles from './styles.module.scss';
 
 export function CommentsSection() {
@@ -8,8 +8,8 @@ export function CommentsSection() {
         <>
             <Header />
             <div className={styles.container}>
-                <Message />
-                <SendMessage />
+                <Comments />
+                <SendComments />
             </div>
         </>
     );

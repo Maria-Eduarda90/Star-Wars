@@ -4,7 +4,7 @@ class createCommentServices {
     async execute(comment: string){
         const comments = await prismaClient.comment.create({
             data: {
-                comment,
+                comment
             }
         });
 
