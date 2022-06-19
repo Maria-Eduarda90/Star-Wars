@@ -83,3 +83,18 @@
         }
     }
 }
+
+@media(max-width: 900px){
+    .container {
+        .text {
+            flex-direction: column;
+
+            > img {
+            width: 21rem;
+            height: 21rem;
+            display: flex;
+            margin: auto;
+        }
+        }
+    }
+}
