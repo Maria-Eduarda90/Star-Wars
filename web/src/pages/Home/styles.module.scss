@@ -6,6 +6,7 @@
 
     > div {
         text-align: center;
+        width: 34.375rem;
 
         span {
             color: #c09a04;
@@ -15,7 +16,7 @@
             color: white;
         }
         p {
-            width: 34.375rem;
+            
             color: #c5c2c2;
             letter-spacing: -1px;
             margin-top: 16px;
@@ -84,11 +85,8 @@
 
 @media(max-width: 700px){
     .container {
-        grid-auto-flow: column;
-        flex-direction: column;
-
         P {
-            padding: 0 2.5rem 0 2.5rem;
+            padding: 0 1rem 0 1rem;
         }
 
         img {

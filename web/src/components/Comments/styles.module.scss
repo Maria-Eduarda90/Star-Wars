@@ -37,3 +37,11 @@
         margin-top: 15px;
     }
 }
+
+@media(max-width: 900px){
+    .container {
+        .content {
+            width: 95%;
+        }
+    }
+}

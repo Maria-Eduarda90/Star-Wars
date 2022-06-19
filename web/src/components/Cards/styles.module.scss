@@ -4,8 +4,9 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
         img {
-            height: 400px;
-            width: 400px;
+            height: 25rem;
+            width: 25rem;
+            border-radius: 4px;
         }
 
         div {
