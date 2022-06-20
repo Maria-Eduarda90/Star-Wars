@@ -1,8 +1,8 @@
-import { prisma } from "../prisma";
+import prismaClient from "../prisma";
 
 class createCommentServices {
     async execute(comment: string){
-        const comments = await prisma.comment.create({
+        const comments = await prismaClient.comment.create({
           data: {
             comment,
           },
