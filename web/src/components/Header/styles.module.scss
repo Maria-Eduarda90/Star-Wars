@@ -55,11 +55,10 @@
 
 @media(max-width: 700px){
     .container {
-
-        .links {
-            opacity: 0;
-            visibility: hidden;
-            top: -20rem;
+        > div {
+            img{
+                display: none;
+            }
         }
     }
 }
