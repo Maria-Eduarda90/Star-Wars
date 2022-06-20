@@ -1,8 +1,8 @@
-import prismaClient from "../prisma";
+import { prisma } from "../prisma";
 
 class getCommentServices {
     async execute(){
-        const comments = await prismaClient.comment.findMany({
+        const comments = await prisma.comment.findMany({
             select: {
                 id: true,
                 comment: true,
