@@ -9,4 +9,8 @@ app.use(cors());
 app.use(express.json());
 app.use(router);
 
-app.listen(process.env.PORT || 3333, () => { console.log("server is running");})
+const port = process.env.PORT || 3333;
+
+app.listen(port, () => {
+  console.log(`rodando na pota ${port}`);
+});
