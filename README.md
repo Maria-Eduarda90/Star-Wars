@@ -19,6 +19,7 @@
 - Express
 - Postgresql
 - Axios
+- Swiper React
 
 </br>
 
@@ -61,5 +62,5 @@ $ yarn dev
 </h1>
 
 <h1 align="center">
-  <img alt="Star-Wars" title="#Star-Wars" src="./web/src/images/20220621_080645.gif" />
+  <img alt="Star-Wars" title="#Star-Wars" src="./web/src/images/20220626_151021.gif" />
 </h1>

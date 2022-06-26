@@ -9,7 +9,7 @@ class createCommentController {
 
         const result = await service.execute(comment);
 
-        return response.json(result);
+        return response.status(201).json(result);
     }
 }
 export { createCommentController }
