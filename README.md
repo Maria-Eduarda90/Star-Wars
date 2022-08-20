@@ -32,7 +32,7 @@ $ git clone <https://github.com/Maria-Eduarda90/Star-Wars>
 # Acesse a pasta do projeto no terminal/cmd
 $ cd Star-Wars
 
-# 🎲 Rodando o FrontEnd
+# 🎲 Rodando o Front-End
 $ cd web
 
 # Instale as dependências
@@ -41,7 +41,7 @@ $ yarn
 # Execute a aplicação em modo de desenvolvimento
 $ yarn dev
 
-# 🎲 Rodando o BackEnd (servidor)
+# 🎲 Rodando o Back-End (servidor)
 $ cd backend
 
 # dentro da pasta backend, crie um a arquivo .env com as seguintes configurações do prisma, para fazer a conexão com o postgresql
@@ -58,7 +58,7 @@ $ yarn dev
 </br>
 
 <h1 align="center"> 
-	Projeto 
+	Projeto  
 </h1>
 
 <h1 align="center">
