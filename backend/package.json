@@ -4,9 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/server.js",
-    "dev": "ts-node-dev --exit-child src/server.ts"
+    "generate": "npx prisma generate",
+    "deploy": "npx prisma migrate deploy",
+    "dev": "npm run generate && nodemon --watch \"src/**\" --ext \"js,json\" --exec \"node src/index.js\"",
+    "build": "npm run generate",
+    "start": "npm run build && node build/index.js"
+  },
+  "prisma": {
+    "schema": "prisma/schema.prisma"
   },
   "devDependencies": {
     "prisma": "^3.15.2",
