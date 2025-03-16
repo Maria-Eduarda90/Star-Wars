@@ -9,8 +9,9 @@ app.use(cors());
 app.use(express.json());
 app.use(router);
 
-const port = process.env.PORT || 3333;
+const port = Number(process.env.PORT) || 3333;
 
-app.listen(port, () => {
-  console.log(`rodando na pota ${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`rodando na porta ${port}`);
 });
+

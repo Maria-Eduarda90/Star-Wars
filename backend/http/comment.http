@@ -1,0 +1,2 @@
+### getComment
+GET http://localhost:3333/comments HTTP/1.1
