@@ -30,7 +30,7 @@ services:
       - star-wars-network
 
   star-wars-backend:
-    build: ./  # Ou o caminho do seu backend
+    build: ./
     ports:
       - '3333:3333'
     environment:
