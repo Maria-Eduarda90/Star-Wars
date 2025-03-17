@@ -23,6 +23,15 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Criar .env backend
+        run: |
+          echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" > ./backend/.env
+          echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> ./backend/.env
+          echo "POSTGRES_HOST=postgres" >> ./backend/.env
+          echo "POSTGRES_PORT=5432" >> ./backend/.env
+          echo "POSTGRES_DB=${{ secrets.POSTGRES_DB }}" >> ./backend/.env
+          echo "DATABASE_URL=postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@postgres:${{ secrets.POSTGRES_PORT }}/${{ secrets.POSTGRES_DB }}?sslmode=disable" >> ./backend/.env
+
       - name: Build and push backend image
         uses: docker/build-push-action@v3
         with:
