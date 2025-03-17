@@ -47,8 +47,6 @@ jobs:
           file: ./web/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/star-wars-web:latest
-          build-args: 
-                - "--no-cache=true"
 
       - name: Deploy to production
         run: |
