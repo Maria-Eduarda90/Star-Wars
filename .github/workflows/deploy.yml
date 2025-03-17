@@ -43,8 +43,8 @@ jobs:
       - name: Build and push frontend image
         uses: docker/build-push-action@v3
         with:
-          context: ./frontend
-          file: ./frontend/Dockerfile
+          context: ./web
+          file: ./web/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/star-wars-web:latest
 
