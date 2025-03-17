@@ -32,6 +32,11 @@ jobs:
           echo "POSTGRES_DB=${{ secrets.POSTGRES_DB }}" >> ./backend/.env
           echo "DATABASE_URL=postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@postgres:${{ secrets.POSTGRES_PORT }}/${{ secrets.POSTGRES_DB }}?sslmode=disable" >> ./backend/.env
 
+      - name: Criar .env frontend
+        run: |
+          echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" > ./web/.env
+
+
       - name: Build and push backend image
         uses: docker/build-push-action@v3
         with:
