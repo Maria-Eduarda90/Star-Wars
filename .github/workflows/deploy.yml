@@ -53,5 +53,5 @@ jobs:
           ssh ${{ secrets.PROD_SERVER_USER }}@${{ secrets.PROD_SERVER_IP }} "
             docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-backend:latest &&
             docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-web:latest &&
-            docker-compose -f /caminho/para/seu/docker-compose.yml up -d
+            docker-compose -f /var/www/projeto/docker-compose.yml up -d
           "
