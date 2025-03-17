@@ -45,6 +45,17 @@ services:
     networks:
       - star-wars-network
 
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Mapeia o arquivo de configuração do Nginx
+    depends_on:
+      - star-wars-backend
+    networks:
+      - star-wars-network
+
 volumes:
   postgres-data:
   pg-admin-data:
