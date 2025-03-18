@@ -10,6 +10,8 @@ COPY . .
 
 COPY .env .env
 
+RUN cat .env
+
 RUN npm run build
 
 # Etapa de produção
