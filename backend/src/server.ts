@@ -4,7 +4,9 @@ import cors from 'cors';
 import { router } from "./routes/routes";
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://star-wars-web.xdbtqu.easypanel.host'
+}));
 
 app.use(express.json());
 app.use(router);
