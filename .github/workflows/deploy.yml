@@ -53,6 +53,8 @@ jobs:
           file: ./web/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/star-wars-web:latest
+          build-args: |
+            VITE_API_URL=${{ secrets.VITE_API_URL }}
 
       - name: Deploy to production
         run: |
