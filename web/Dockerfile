@@ -2,13 +2,15 @@
 FROM node:18 as build
 WORKDIR /app
 
+# Copia pacotes e .env
 COPY package*.json ./
 COPY .env .env
+
 RUN npm install
 COPY . .
 
-# Exporta manualmente a variável durante o build
-RUN export $(cat .env | xargs) && npm run build
+# O Vite já vai usar automaticamente o .env com VITE_ no build
+RUN npm run build
 
 # Etapa de produção
 FROM nginx:alpine
