@@ -29,9 +29,9 @@ esac
 
 NEW_TAG="v$MAJOR.$MINOR.$PATCH"
 
-# Verificar se a tag já existe
-if git rev-parse "$NEW_TAG" >/dev/null 2>&1; then
-  echo "Tag $NEW_TAG já existe. Incrementando a versão."
+# Verificar se a tag já existe no repositório remoto
+if git ls-remote --tags origin "$NEW_TAG" | grep -q "$NEW_TAG"; then
+  echo "Tag $NEW_TAG já existe no repositório remoto. Incrementando a versão."
   PATCH=$((PATCH + 1))  # Incremente a versão patch, caso já tenha essa tag.
   NEW_TAG="v$MAJOR.$MINOR.$PATCH"
 fi
