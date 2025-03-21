@@ -29,6 +29,13 @@ esac
 
 NEW_TAG="v$MAJOR.$MINOR.$PATCH"
 
+# Verificar se a tag já existe
+if git rev-parse "$NEW_TAG" >/dev/null 2>&1; then
+  echo "Tag $NEW_TAG já existe. Incrementando a versão."
+  PATCH=$((PATCH + 1))  # Incremente a versão patch, caso já tenha essa tag.
+  NEW_TAG="v$MAJOR.$MINOR.$PATCH"
+fi
+
 # Cria e envia a nova tag
 git config user.name "GitHub Actions"
 git config user.email "actions@github.com"
