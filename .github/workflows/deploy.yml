@@ -56,12 +56,6 @@ jobs:
           build-args: |
             VITE_API_URL=${{ secrets.VITE_API_URL }}
 
-      - name: Deploy to production
-        run: |
-          ssh ${{ secrets.PROD_SERVER_USER }}@${{ secrets.PROD_SERVER_IP }} "
-            docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-backend:latest &&
-            docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-web:latest
-          "
       - name: Give permission to bump-version.sh
         run: chmod +x ./bump-version.sh
 
@@ -72,3 +66,11 @@ jobs:
         run: ./bump-version.sh ${{ env.VERSION_TYPE }}
         env:
           VERSION_TYPE: ${{ contains(github.event.head_commit.message, '#major') && 'major' || contains(github.event.head_commit.message, '#minor') && 'minor' || 'patch' }}
+
+      - name: Deploy to production
+        run: |
+          ssh ${{ secrets.PROD_SERVER_USER }}@${{ secrets.PROD_SERVER_IP }} "
+            docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-backend:latest &&
+            docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-web:latest
+          "
+      
