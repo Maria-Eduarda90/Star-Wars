@@ -36,6 +36,7 @@ jobs:
         run: |
           echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" > ./web/.env
 
+
       - name: Build and push backend image
         uses: docker/build-push-action@v3
         with:
@@ -55,12 +56,14 @@ jobs:
           build-args: |
             VITE_API_URL=${{ secrets.VITE_API_URL }}
 
-      - name: Bump version and push tag
-        id: bump
-        run: |
-          chmod +x ./bump-version.sh
-          VERSION=$(./bump-version.sh ${{ env.VERSION_TYPE }})
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      - name: Give permission to bump-version.sh
+        run: chmod +x ./bump-version.sh
+
+      - name: Fetch all tags
+        run: git fetch --tags
+        
+      - name: Bump version and push tag/branch
+        run: ./bump-version.sh ${{ env.VERSION_TYPE }}
         env:
           VERSION_TYPE: ${{ contains(github.event.head_commit.message, '#major') && 'major' || contains(github.event.head_commit.message, '#minor') && 'minor' || 'patch' }}
 
@@ -70,3 +73,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-backend:latest &&
             docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-web:latest
           "
+      
