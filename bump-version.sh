@@ -2,6 +2,9 @@
 
 set -e
 
+git tag -l | xargs git tag -d
+git fetch --tags
+
 VERSION_TYPE=${1:-patch}  # patch | minor | major
 
 # Pega última tag ou assume v0.0.0 se não tiver nenhuma
@@ -31,15 +34,18 @@ NEW_TAG="v$MAJOR.$MINOR.$PATCH"
 
 # Verificar se a tag já existe no repositório remoto
 git fetch --tags
-if git ls-remote --tags origin "$NEW_TAG" | grep -q "$NEW_TAG"; then
+echo "Última tag: $LAST_TAG"
+echo "Nova tag: $NEW_TAG"
+while git ls-remote --tags origin "$NEW_TAG" | grep -q "$NEW_TAG"; do
   echo "Tag $NEW_TAG já existe no repositório remoto. Incrementando a versão."
-  PATCH=$((PATCH + 1))  # Incremente a versão patch, caso já tenha essa tag.
+  PATCH=$((PATCH + 1))  # Incrementa a versão patch, caso já tenha essa tag.
   NEW_TAG="v$MAJOR.$MINOR.$PATCH"
-fi
+done
 
 # Cria e envia a nova tag
 git config user.name "GitHub Actions"
 git config user.email "actions@github.com"
+sleep 5
 git tag "$NEW_TAG"
 git push origin "$NEW_TAG"
 
