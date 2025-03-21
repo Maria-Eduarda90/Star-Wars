@@ -62,3 +62,13 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-backend:latest &&
             docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-web:latest
           "
+      - name: Give permission to bump-version.sh
+        run: chmod +x ./bump-version.sh
+
+      - name: Fetch all tags
+        run: git fetch --tags
+        
+      - name: Bump version and push tag/branch
+        run: ./bump-version.sh ${{ env.VERSION_TYPE }}
+        env:
+          VERSION_TYPE: ${{ contains(github.event.head_commit.message, '#major') && 'major' || contains(github.event.head_commit.message, '#minor') && 'minor' || 'patch' }}
