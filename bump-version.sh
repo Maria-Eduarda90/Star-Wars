@@ -36,7 +36,7 @@ git tag "$NEW_TAG"
 git push origin "$NEW_TAG"
 
 # Opcional: cria branch release/vX.Y.Z
-git checkout -b "release/$NEW_TAG"
-git push origin "release/$NEW_TAG"
+git checkout -b "$NEW_TAG"
+git push origin "$NEW_TAG"
 
 echo "✅ Nova versão: $NEW_TAG"
