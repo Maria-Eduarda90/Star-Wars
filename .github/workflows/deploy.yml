@@ -36,7 +36,6 @@ jobs:
         run: |
           echo "VITE_API_URL=${{ secrets.VITE_API_URL }}" > ./web/.env
 
-
       - name: Build and push backend image
         uses: docker/build-push-action@v3
         with:
@@ -71,4 +70,3 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-backend:latest &&
             docker pull ${{ secrets.DOCKER_USERNAME }}/star-wars-web:latest
           "
-      
