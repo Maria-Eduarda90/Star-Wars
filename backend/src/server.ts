@@ -20,6 +20,8 @@ app.get('/metrics', async (req, res) => {
   res.end(await client.register.metrics());
 });
 
+
+
 const port = Number(process.env.PORT) || 3333;
 
 app.listen(port, '0.0.0.0', () => {
