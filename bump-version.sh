@@ -2,6 +2,7 @@
 
 set -e
 
+# Remove tags locais e busca as tags remotas
 git tag -l | xargs git tag -d
 git fetch --tags
 
@@ -14,11 +15,14 @@ LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
 VERSION=${LAST_TAG#v}
 IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
 
+# Guarda os valores anteriores para uso com major
+PREV_MINOR=$MINOR
+
 # Faz o bump da versão
 case "$VERSION_TYPE" in
   major)
     MAJOR=$((MAJOR + 1))
-    MINOR=0
+    MINOR=$PREV_MINOR
     PATCH=0
     ;;
   minor)
@@ -32,24 +36,24 @@ esac
 
 NEW_TAG="v$MAJOR.$MINOR.$PATCH"
 
-# Verificar se a tag já existe no repositório remoto
+# Verifica se a tag já existe no repositório remoto e ajusta se necessário
 git fetch --tags
 echo "Última tag: $LAST_TAG"
-echo "Nova tag: $NEW_TAG"
+echo "Nova tag tentativa: $NEW_TAG"
 while git ls-remote --tags origin "$NEW_TAG" | grep -q "$NEW_TAG"; do
-  echo "Tag $NEW_TAG já existe no repositório remoto. Incrementando a versão."
-  PATCH=$((PATCH + 1))  # Incrementa a versão patch, caso já tenha essa tag.
+  echo "Tag $NEW_TAG já existe no repositório remoto. Incrementando patch."
+  PATCH=$((PATCH + 1))
   NEW_TAG="v$MAJOR.$MINOR.$PATCH"
 done
 
 # Cria e envia a nova tag
 git config user.name "GitHub Actions"
 git config user.email "actions@github.com"
-sleep 5
+sleep 2
 git tag "$NEW_TAG"
 git push origin "$NEW_TAG"
 
-# Opcional: cria branch release/vX.Y.Z
+# Cria e envia a nova branch release/vX.Y.Z
 git checkout -b "release/$NEW_TAG"
 git push origin "release/$NEW_TAG"
 
