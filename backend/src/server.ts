@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 const collectDefaultMetrics = client.collectDefaultMetrics;
-collectDefaultMetrics(); // Coleta métricas padrão como uso de CPU, memória, etc.
+collectDefaultMetrics();
 
 app.use(router);
 
